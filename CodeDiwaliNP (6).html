@@ -1,0 +1,2149 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indian Army - Valor &amp; Honor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a365d 0%, #2d5a87 30%, #ff6b35 70%, #138808 100%);
+        }
+        
+        .army-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(255, 107, 53, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(26, 54, 93, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(19, 136, 8, 0.05) 50%, transparent 60%);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 1s ease-out forwards;
+            opacity: 0;
+            transform: translateX(50px);
+        }
+        
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
+        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-6 { animation-delay: 0.6s; }
+        
+        .tricolor-border {
+            border-image: linear-gradient(90deg, #ff9933, #ffffff, #138808) 1;
+            border-width: 4px;
+            border-style: solid;
+        }
+        
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .shine-effect:hover::before {
+            left: 100%;
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .hero-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #f97316;
+        }
+        
+        .memorial-flame {
+            animation: flicker 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes flicker {
+            0% { transform: scale(1) rotate(-1deg); }
+            100% { transform: scale(1.1) rotate(1deg); }
+        }
+        
+        .typing-animation {
+            overflow: hidden;
+            border-right: 2px solid #f97316;
+            white-space: nowrap;
+            animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #f97316; }
+        }
+        
+        .game-explosion {
+            animation: explode 0.5s ease-out forwards;
+        }
+        
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        
+        .unit-deploy {
+            animation: deploy 0.3s ease-out;
+        }
+        
+        @keyframes deploy {
+            0% { transform: scale(0) rotate(0deg); }
+            50% { transform: scale(1.2) rotate(180deg); }
+            100% { transform: scale(1) rotate(360deg); }
+        }
+        
+        .victory-celebration {
+            animation: celebrate 2s ease-in-out infinite;
+        }
+        
+        @keyframes celebrate {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.1) rotate(5deg); }
+            75% { transform: scale(1.1) rotate(-5deg); }
+        }
+        
+        .coin-collect {
+            animation: coinCollect 0.5s ease-out forwards;
+        }
+        
+        @keyframes coinCollect {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-50px) scale(1.5); opacity: 0; }
+        }
+        
+        /* Earth Game Animations */
+        .earth-terrain {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: 
+                linear-gradient(45deg, rgba(34, 197, 94, 0.3) 25%, transparent 25%),
+                linear-gradient(-45deg, rgba(34, 197, 94, 0.3) 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, rgba(101, 163, 13, 0.2) 75%),
+                linear-gradient(-45deg, transparent 75%, rgba(101, 163, 13, 0.2) 75%),
+                radial-gradient(circle at 30% 40%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%);
+            background-size: 60px 60px, 60px 60px, 60px 60px, 60px 60px, 120px 120px, 100px 100px;
+            background-position: 0 0, 0 30px, 30px -30px, -30px 0px, 0 0, 50px 50px;
+            animation: terrainMove 15s linear infinite;
+        }
+        
+        @keyframes terrainMove {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-60px) translateY(-60px); }
+        }
+        
+        .space-explosion {
+            animation: spaceExplode 0.6s ease-out forwards;
+        }
+        
+        @keyframes spaceExplode {
+            0% { transform: scale(0) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.5) rotate(180deg); opacity: 0.8; }
+            100% { transform: scale(3) rotate(360deg); opacity: 0; }
+        }
+        
+        .power-up-glow {
+            animation: powerGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes powerGlow {
+            0% { box-shadow: 0 0 5px rgba(59, 130, 246, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(59, 130, 246, 1), 0 0 30px rgba(59, 130, 246, 0.8); }
+        }
+        
+        .screen-shake {
+            animation: screenShake 0.3s ease-in-out;
+        }
+        
+        @keyframes screenShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* Enhanced Animations */
+        .bounce-in {
+            animation: bounceIn 1s ease-out forwards;
+            opacity: 0;
+            transform: scale(0.3);
+        }
+        
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.3); }
+            50% { opacity: 1; transform: scale(1.05); }
+            70% { transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .rotate-in {
+            animation: rotateIn 1.5s ease-out forwards;
+            opacity: 0;
+            transform: rotate(-180deg) scale(0);
+        }
+        
+        @keyframes rotateIn {
+            0% { opacity: 0; transform: rotate(-180deg) scale(0); }
+            100% { opacity: 1; transform: rotate(0deg) scale(1); }
+        }
+        
+        .slide-up {
+            animation: slideUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        
+        @keyframes slideUp {
+            0% { opacity: 0; transform: translateY(100px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .zoom-in {
+            animation: zoomIn 1.2s ease-out forwards;
+            opacity: 0;
+            transform: scale(0);
+        }
+        
+        @keyframes zoomIn {
+            0% { opacity: 0; transform: scale(0); }
+            60% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .flip-in {
+            animation: flipIn 1s ease-out forwards;
+            opacity: 0;
+            transform: rotateY(-90deg);
+        }
+        
+        @keyframes flipIn {
+            0% { opacity: 0; transform: rotateY(-90deg); }
+            100% { opacity: 1; transform: rotateY(0deg); }
+        }
+        
+        .wave-animation {
+            animation: wave 2s ease-in-out infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+        
+        .heartbeat {
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .glow-text {
+            animation: glowText 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes glowText {
+            0% { text-shadow: 0 0 5px rgba(249, 115, 22, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(249, 115, 22, 1), 0 0 30px rgba(249, 115, 22, 0.8); }
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(45deg, #ff6b35, #f7931e, #ffd700, #32cd32, #1e90ff, #9370db);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowMove 3s ease-in-out infinite;
+        }
+        
+        @keyframes rainbowMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .typewriter {
+            overflow: hidden;
+            border-right: 3px solid #f97316;
+            white-space: nowrap;
+            animation: typewriter 4s steps(40, end), blinkCursor 0.75s step-end infinite;
+        }
+        
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blinkCursor {
+            from, to { border-color: transparent; }
+            50% { border-color: #f97316; }
+        }
+        
+        .gradient-shift {
+            background: linear-gradient(45deg, #ff6b35, #f7931e, #32cd32, #1e90ff);
+            background-size: 400% 400%;
+            animation: gradientShift 4s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .dancing-letters {
+            display: inline-block;
+            animation: dancingLetters 2s ease-in-out infinite;
+        }
+        
+        @keyframes dancingLetters {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-10px) rotate(5deg); }
+            75% { transform: translateY(-5px) rotate(-3deg); }
+        }
+        
+        .stagger-7 { animation-delay: 0.7s; }
+        .stagger-8 { animation-delay: 0.8s; }
+        .stagger-9 { animation-delay: 0.9s; }
+        .stagger-10 { animation-delay: 1.0s; }
+        .stagger-11 { animation-delay: 1.1s; }
+        .stagger-12 { animation-delay: 1.2s; }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-gray-900 text-white font-['Inter'] overflow-x-hidden"><!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-gray-900/95 backdrop-blur-sm border-b border-orange-500/30">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+     <div class="flex items-center space-x-3">
+      <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-full flex items-center justify-center"><span class="text-white font-bold text-lg">🇮🇳</span>
+      </div><span class="font-['Cinzel'] font-bold text-xl text-orange-400">Indian Army</span>
+     </div>
+     <div class="hidden md:flex space-x-6 text-sm"><a href="#home" class="hover:text-orange-400 transition-colors duration-300">Home</a> <a href="#valor" class="hover:text-orange-400 transition-colors duration-300">Valor</a> <a href="#heroes" class="hover:text-orange-400 transition-colors duration-300">Heroes</a> <a href="#tribute" class="hover:text-orange-400 transition-colors duration-300">Tribute</a> <a href="#battles" class="hover:text-orange-400 transition-colors duration-300">Battles</a> <a href="#game" class="hover:text-orange-400 transition-colors duration-300">Game</a> <a href="#memorial" class="hover:text-orange-400 transition-colors duration-300">Memorial</a> <a href="#legacy" class="hover:text-orange-400 transition-colors duration-300">Legacy</a>
+     </div>
+    </div>
+   </div>
+  </nav><!-- Hero Section -->
+  <section id="home" class="min-h-screen hero-gradient army-pattern flex items-center justify-center relative overflow-hidden">
+   <div class="absolute inset-0 bg-black/40"></div><!-- Animated Background Elements -->
+   <div class="absolute top-20 left-10 floating-animation">
+    <div class="w-16 h-16 border-2 border-orange-400/30 rounded-full"></div>
+   </div>
+   <div class="absolute bottom-32 right-16 floating-animation" style="animation-delay: -2s;">
+    <div class="w-12 h-12 bg-orange-500/20 rounded-full"></div>
+   </div>
+   <div class="absolute top-1/3 right-1/4 floating-animation" style="animation-delay: -4s;">
+    <div class="w-8 h-8 border border-white/20 rotate-45"></div>
+   </div>
+   <div class="absolute top-1/4 left-1/3 floating-animation" style="animation-delay: -1s;">
+    <div class="text-4xl">
+     ⭐
+    </div>
+   </div>
+   <div class="absolute bottom-1/4 left-1/4 floating-animation" style="animation-delay: -3s;">
+    <div class="text-3xl">
+     🏔️
+    </div>
+   </div><!-- Hero Images -->
+   <div class="absolute top-32 right-32 bounce-in stagger-5">
+    <svg class="hero-image floating-animation" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="48" fill="#1f2937" stroke="#f97316" stroke-width="2" /> <circle cx="50" cy="35" r="12" fill="#fbbf24" /> <rect x="40" y="45" width="20" height="25" fill="#10b981" /> <rect x="35" y="50" width="30" height="8" fill="#374151" /> <text x="50" y="85" text-anchor="middle" fill="#f97316" font-size="8">
+      HERO
+     </text>
+    </svg>
+   </div>
+   <div class="absolute bottom-40 left-20 rotate-in stagger-6">
+    <svg class="hero-image floating-animation" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="animation-delay: -3s;"><circle cx="50" cy="50" r="48" fill="#1f2937" stroke="#f97316" stroke-width="2" /> <circle cx="50" cy="35" r="12" fill="#fbbf24" /> <rect x="40" y="45" width="20" height="25" fill="#10b981" /> <polygon points="50,20 55,30 45,30" fill="#ef4444" /> <text x="50" y="85" text-anchor="middle" fill="#f97316" font-size="8">
+      BRAVE
+     </text>
+    </svg>
+   </div>
+   <div class="relative z-10 text-center max-w-6xl mx-auto px-4">
+    <div class="fade-in-up stagger-1">
+     <h1 class="font-['Cinzel'] text-5xl md:text-7xl lg:text-8xl font-bold mb-6 bg-gradient-to-r from-orange-400 via-white to-green-400 bg-clip-text text-transparent">INDIAN ARMY</h1>
+    </div>
+    <div class="fade-in-up stagger-2">
+     <p class="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-orange-300 typing-animation">"Service Before Self"</p>
+    </div>
+    <div class="fade-in-up stagger-3">
+     <p class="text-lg md:text-xl mb-8 max-w-4xl mx-auto leading-relaxed text-gray-200">Guardians of the Nation • Protectors of Freedom • Embodiment of Courage</p>
+    </div>
+    <div class="fade-in-up stagger-4 flex flex-wrap justify-center gap-4"><button onclick="scrollToSection('valor')" class="shine-effect bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"> Explore Our Legacy </button> <button onclick="scrollToSection('game')" class="shine-effect bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-2xl"> Play Army Game </button>
+    </div>
+   </div><!-- Scroll Indicator -->
+   <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+    <div class="w-6 h-10 border-2 border-orange-400 rounded-full flex justify-center">
+     <div class="w-1 h-3 bg-orange-400 rounded-full mt-2 animate-pulse"></div>
+    </div>
+   </div>
+  </section><!-- Valor Section -->
+  <section id="valor" class="py-24 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"><!-- Enhanced Background Animation -->
+   <div class="absolute inset-0">
+    <div class="absolute top-10 left-10 w-32 h-32 bg-orange-500/10 rounded-full blur-xl animate-pulse"></div>
+    <div class="absolute bottom-20 right-20 w-48 h-48 bg-green-500/10 rounded-full blur-2xl animate-pulse" style="animation-delay: -2s;"></div>
+    <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-red-500/10 rounded-full blur-lg animate-pulse" style="animation-delay: -4s;"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-xl animate-pulse" style="animation-delay: -1s;"></div>
+   </div>
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="text-center mb-20">
+     <h2 class="font-['Cinzel'] text-5xl md:text-6xl font-bold mb-8 text-orange-400 drop-shadow-2xl">Unmatched Valor</h2>
+     <p class="text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed mb-8">The Indian Army stands as an unbreakable fortress of courage, defending our sacred motherland with unwavering determination, supreme sacrifice, and legendary valor that echoes through the ages.</p>
+     <div class="flex justify-center space-x-4 mb-8">
+      <div class="w-6 h-6 bg-orange-500 rounded-full animate-bounce"></div>
+      <div class="w-6 h-6 bg-white rounded-full animate-bounce" style="animation-delay: 0.2s;"></div>
+      <div class="w-6 h-6 bg-green-500 rounded-full animate-bounce" style="animation-delay: 0.4s;"></div>
+     </div>
+    </div><!-- Core Values Grid -->
+    <div class="grid md:grid-cols-3 gap-10 mb-20">
+     <div class="group bg-gradient-to-br from-red-900/40 via-gray-800 to-gray-900 p-10 rounded-3xl border-2 border-orange-500/30 hover:border-orange-500/70 transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl bounce-in stagger-1">
+      <div class="text-8xl mb-6 group-hover:scale-125 transition-transform duration-500 text-center heartbeat">
+       ⚔️
+      </div>
+      <h3 class="font-['Cinzel'] text-3xl font-bold mb-6 text-orange-400 text-center glow-text">Courage</h3>
+      <p class="text-gray-200 leading-relaxed text-lg text-center mb-4">Facing the impossible with unwavering bravery, our soldiers embody the true spirit of fearlessness in the darkest hours.</p>
+      <div class="text-center"><span class="inline-block bg-orange-500/20 px-4 py-2 rounded-full text-orange-300 text-sm font-semibold gradient-shift"> "Courage is not the absence of fear, but action in spite of it" </span>
+      </div>
+     </div>
+     <div class="group bg-gradient-to-br from-blue-900/40 via-gray-800 to-gray-900 p-10 rounded-3xl border-2 border-orange-500/30 hover:border-orange-500/70 transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl zoom-in stagger-2">
+      <div class="text-8xl mb-6 group-hover:scale-125 transition-transform duration-500 text-center rotate-in">
+       🛡️
+      </div>
+      <h3 class="font-['Cinzel'] text-3xl font-bold mb-6 text-orange-400 text-center glow-text">Honor</h3>
+      <p class="text-gray-200 leading-relaxed text-lg text-center mb-4">Upholding the highest standards of integrity and moral courage, serving the nation with unshakeable pride and dignity.</p>
+      <div class="text-center"><span class="inline-block bg-blue-500/20 px-4 py-2 rounded-full text-blue-300 text-sm font-semibold gradient-shift"> "Honor is the foundation of military excellence" </span>
+      </div>
+     </div>
+     <div class="group bg-gradient-to-br from-green-900/40 via-gray-800 to-gray-900 p-10 rounded-3xl border-2 border-orange-500/30 hover:border-orange-500/70 transition-all duration-500 transform hover:-translate-y-4 hover:shadow-2xl flip-in stagger-3">
+      <div class="text-8xl mb-6 group-hover:scale-125 transition-transform duration-500 text-center floating-animation">
+       🏔️
+      </div>
+      <h3 class="font-['Cinzel'] text-3xl font-bold mb-6 text-orange-400 text-center glow-text">Sacrifice</h3>
+      <p class="text-gray-200 leading-relaxed text-lg text-center mb-4">From the icy heights of Siachen to the burning deserts of Rajasthan, our heroes sacrifice everything for the motherland.</p>
+      <div class="text-center"><span class="inline-block bg-green-500/20 px-4 py-2 rounded-full text-green-300 text-sm font-semibold gradient-shift"> "Greater love has no one than this" </span>
+      </div>
+     </div>
+    </div><!-- Army Strength Statistics -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+     <div class="bg-gradient-to-br from-orange-900/40 to-gray-900 p-8 rounded-2xl border border-orange-500/40 text-center transform hover:scale-105 transition-all duration-300">
+      <div class="text-5xl font-bold text-orange-400 mb-2">
+       1.4M+
+      </div>
+      <div class="text-lg text-gray-300">
+       Active Personnel
+      </div>
+      <div class="text-sm text-orange-300 mt-2">
+       World's 2nd Largest Army
+      </div>
+     </div>
+     <div class="bg-gradient-to-br from-green-900/40 to-gray-900 p-8 rounded-2xl border border-green-500/40 text-center transform hover:scale-105 transition-all duration-300">
+      <div class="text-5xl font-bold text-green-400 mb-2">
+       75+
+      </div>
+      <div class="text-lg text-gray-300">
+       Years of Service
+      </div>
+      <div class="text-sm text-green-300 mt-2">
+       Since Independence
+      </div>
+     </div>
+     <div class="bg-gradient-to-br from-blue-900/40 to-gray-900 p-8 rounded-2xl border border-blue-500/40 text-center transform hover:scale-105 transition-all duration-300">
+      <div class="text-5xl font-bold text-blue-400 mb-2">
+       21
+      </div>
+      <div class="text-lg text-gray-300">
+       Param Vir Chakras
+      </div>
+      <div class="text-sm text-blue-300 mt-2">
+       Highest Gallantry Award
+      </div>
+     </div>
+     <div class="bg-gradient-to-br from-red-900/40 to-gray-900 p-8 rounded-2xl border border-red-500/40 text-center transform hover:scale-105 transition-all duration-300">
+      <div class="text-5xl font-bold text-red-400 mb-2">
+       4
+      </div>
+      <div class="text-lg text-gray-300">
+       Major Wars Won
+      </div>
+      <div class="text-sm text-red-300 mt-2">
+       Undefeated Legacy
+      </div>
+     </div>
+    </div><!-- Army Motto and Philosophy -->
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+     <div class="slide-in-left">
+      <h3 class="font-['Cinzel'] text-4xl font-bold mb-8 text-orange-400">Our Sacred Philosophy</h3>
+      <div class="space-y-6 text-lg text-gray-200">
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         🇮🇳
+        </div>
+        <div>
+         <h4 class="font-bold text-orange-300 mb-2">Service Before Self</h4>
+         <p>The nation's needs always come before personal desires or comfort.</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         ⚡
+        </div>
+        <div>
+         <h4 class="font-bold text-orange-300 mb-2">Duty, Honor, Country</h4>
+         <p>These three sacred words guide every action and decision of our soldiers.</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         🛡️
+        </div>
+        <div>
+         <h4 class="font-bold text-orange-300 mb-2">Unity in Diversity</h4>
+         <p>Soldiers from every corner of India unite as one invincible force.</p>
+        </div>
+       </div>
+       <div class="flex items-start space-x-4">
+        <div class="text-3xl">
+         🏔️
+        </div>
+        <div>
+         <h4 class="font-bold text-orange-300 mb-2">Never Retreat</h4>
+         <p>Forward ever, backward never - the eternal spirit of the Indian Army.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="slide-in-right">
+      <div class="bg-gradient-to-br from-orange-600/20 to-red-700/20 p-10 rounded-3xl border-2 border-orange-500/50 shadow-2xl">
+       <div class="text-center mb-8">
+        <div class="text-8xl mb-6">
+         🏆
+        </div>
+        <h4 class="font-['Cinzel'] text-3xl font-bold text-orange-400 mb-4">Army Motto</h4>
+       </div>
+       <blockquote class="text-2xl font-bold text-center text-gray-100 mb-6 leading-relaxed">
+        "सेवा परमो धर्म:"
+       </blockquote>
+       <p class="text-xl text-center text-orange-300 mb-6">"Service is the highest duty"</p>
+       <div class="text-center">
+        <div class="inline-block bg-gradient-to-r from-orange-500 to-red-600 px-8 py-4 rounded-full"><span class="text-white font-bold text-lg">JAI HIND! 🇮🇳</span>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Heroes Section -->
+  <section id="heroes" class="py-20 bg-gradient-to-b from-gray-800 to-gray-900">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+     <h2 class="font-['Cinzel'] text-4xl md:text-5xl font-bold mb-6 text-orange-400">Legendary Heroes</h2>
+     <p class="text-xl text-gray-300 max-w-3xl mx-auto">Honoring the brave souls who have written history with their blood and valor.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+     <div class="bg-gradient-to-b from-orange-900/30 to-gray-900 p-6 rounded-xl border tricolor-border hover:shadow-2xl transition-all duration-300 slide-in-left stagger-1">
+      <div class="text-4xl mb-4 text-center">
+       🎖️
+      </div>
+      <h3 class="font-['Cinzel'] text-lg font-bold text-orange-400 mb-2">Param Vir Chakra</h3>
+      <p class="text-sm text-gray-300">The highest military decoration for acts of conspicuous gallantry</p>
+     </div>
+     <div class="bg-gradient-to-b from-orange-900/30 to-gray-900 p-6 rounded-xl border tricolor-border hover:shadow-2xl transition-all duration-300 slide-in-left stagger-2">
+      <div class="text-4xl mb-4 text-center">
+       🏅
+      </div>
+      <h3 class="font-['Cinzel'] text-lg font-bold text-orange-400 mb-2">Maha Vir Chakra</h3>
+      <p class="text-sm text-gray-300">Second highest gallantry award for exceptional bravery</p>
+     </div>
+     <div class="bg-gradient-to-b from-orange-900/30 to-gray-900 p-6 rounded-xl border tricolor-border hover:shadow-2xl transition-all duration-300 slide-in-right stagger-3">
+      <div class="text-4xl mb-4 text-center">
+       🎗️
+      </div>
+      <h3 class="font-['Cinzel'] text-lg font-bold text-orange-400 mb-2">Vir Chakra</h3>
+      <p class="text-sm text-gray-300">Third highest gallantry award recognizing acts of bravery</p>
+     </div>
+     <div class="bg-gradient-to-b from-orange-900/30 to-gray-900 p-6 rounded-xl border tricolor-border hover:shadow-2xl transition-all duration-300 slide-in-right stagger-4">
+      <div class="text-4xl mb-4 text-center">
+       ⭐
+      </div>
+      <h3 class="font-['Cinzel'] text-lg font-bold text-orange-400 mb-2">Ashoka Chakra</h3>
+      <p class="text-sm text-gray-300">Highest peacetime gallantry award for exceptional courage</p>
+     </div>
+    </div><!-- Hero Gallery -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12"><!-- Captain Vikram Batra -->
+     <div class="bg-gradient-to-br from-red-900/40 to-gray-900 p-5 rounded-2xl border border-red-500/40 hover:border-red-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl fade-in-up stagger-1">
+      <div class="text-center mb-3">
+       <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#ef4444" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#ef4444" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <path d="M55 50 Q60 55 65 50" stroke="#000" stroke-width="1" fill="none" /> <text x="60" y="105" text-anchor="middle" fill="#ef4444" font-size="8" font-weight="bold">
+         PVC
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-base font-bold text-red-400">Capt. Vikram Batra</h4>
+       <p class="text-xs text-red-300">Param Vir Chakra</p>
+      </div>
+      <div class="text-xs text-gray-300 space-y-1">
+       <p><strong>Battle:</strong> Kargil War, 1999</p>
+       <p><strong>Words:</strong> "Yeh Dil Maange More!"</p>
+       <p><strong>Legacy:</strong> "Sher Shah" - The Lion King</p>
+      </div>
+     </div><!-- Major Somnath Sharma -->
+     <div class="bg-gradient-to-br from-orange-900/40 to-gray-900 p-5 rounded-2xl border border-orange-500/40 hover:border-orange-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl fade-in-up stagger-2">
+      <div class="text-center mb-3">
+       <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#f97316" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#f97316" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <polygon points="60,25 65,30 55,30" fill="#ffd700" /> <text x="60" y="105" text-anchor="middle" fill="#f97316" font-size="8" font-weight="bold">
+         1st PVC
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-base font-bold text-orange-400">Maj. Somnath Sharma</h4>
+       <p class="text-xs text-orange-300">First Param Vir Chakra</p>
+      </div>
+      <div class="text-xs text-gray-300 space-y-1">
+       <p><strong>Battle:</strong> Kashmir, 1947</p>
+       <p><strong>Words:</strong> "Fight to last man"</p>
+       <p><strong>Legacy:</strong> First PVC recipient</p>
+      </div>
+     </div><!-- Lieutenant Manoj Pandey -->
+     <div class="bg-gradient-to-br from-yellow-900/40 to-gray-900 p-5 rounded-2xl border border-yellow-500/40 hover:border-yellow-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl fade-in-up stagger-3">
+      <div class="text-center mb-3">
+       <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#eab308" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#eab308" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <path d="M55 50 Q60 53 65 50" stroke="#000" stroke-width="1" fill="none" /> <text x="60" y="105" text-anchor="middle" fill="#eab308" font-size="8" font-weight="bold">
+         PVC
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-base font-bold text-yellow-400">Lt. Manoj Pandey</h4>
+       <p class="text-xs text-yellow-300">Param Vir Chakra</p>
+      </div>
+      <div class="text-xs text-gray-300 space-y-1">
+       <p><strong>Battle:</strong> Kargil War, 1999</p>
+       <p><strong>Words:</strong> "Na Chodnu"</p>
+       <p><strong>Legacy:</strong> Youngest PVC at 24</p>
+      </div>
+     </div><!-- Naik Jadunath Singh -->
+     <div class="bg-gradient-to-br from-green-900/40 to-gray-900 p-5 rounded-2xl border border-green-500/40 hover:border-green-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl fade-in-up stagger-4">
+      <div class="text-center mb-3">
+       <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#10b981" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#10b981" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#10b981" font-size="8" font-weight="bold">
+         PVC
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-base font-bold text-green-400">Naik Jadunath Singh</h4>
+       <p class="text-xs text-green-300">Param Vir Chakra</p>
+      </div>
+      <div class="text-xs text-gray-300 space-y-1">
+       <p><strong>Battle:</strong> 1962 Indo-China War</p>
+       <p><strong>Words:</strong> "I will not retreat"</p>
+       <p><strong>Legacy:</strong> Fought till last breath</p>
+      </div>
+     </div><!-- Captain Gurbachan Singh Salaria -->
+     <div class="bg-gradient-to-br from-blue-900/40 to-gray-900 p-5 rounded-2xl border border-blue-500/40 hover:border-blue-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl fade-in-up stagger-5">
+      <div class="text-center mb-3">
+       <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#3b82f6" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#3b82f6" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <path d="M55 50 Q60 53 65 50" stroke="#000" stroke-width="1" fill="none" /> <text x="60" y="105" text-anchor="middle" fill="#3b82f6" font-size="8" font-weight="bold">
+         PVC
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-base font-bold text-blue-400">Capt. G.S. Salaria</h4>
+       <p class="text-xs text-blue-300">Param Vir Chakra</p>
+      </div>
+      <div class="text-xs text-gray-300 space-y-1">
+       <p><strong>Battle:</strong> Congo, 1961</p>
+       <p><strong>Words:</strong> "For UN Peace"</p>
+       <p><strong>Legacy:</strong> UN Peacekeeper Hero</p>
+      </div>
+     </div><!-- Major Hoshiar Singh -->
+     <div class="bg-gradient-to-br from-purple-900/40 to-gray-900 p-5 rounded-2xl border border-purple-500/40 hover:border-purple-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl fade-in-up stagger-6">
+      <div class="text-center mb-3">
+       <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#8b5cf6" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#8b5cf6" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#8b5cf6" font-size="8" font-weight="bold">
+         PVC
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-base font-bold text-purple-400">Maj. Hoshiar Singh</h4>
+       <p class="text-xs text-purple-300">Param Vir Chakra</p>
+      </div>
+      <div class="text-xs text-gray-300 space-y-1">
+       <p><strong>Battle:</strong> 1971 Bangladesh War</p>
+       <p><strong>Words:</strong> "Victory or Death"</p>
+       <p><strong>Legacy:</strong> Tank Battle Hero</p>
+      </div>
+     </div><!-- Subedar Yogendra Singh Yadav -->
+     <div class="bg-gradient-to-br from-indigo-900/40 to-gray-900 p-5 rounded-2xl border border-indigo-500/40 hover:border-indigo-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl fade-in-up stagger-7">
+      <div class="text-center mb-3">
+       <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#6366f1" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#6366f1" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <path d="M55 50 Q60 55 65 50" stroke="#000" stroke-width="1" fill="none" /> <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-size="8" font-weight="bold">
+         PVC
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-base font-bold text-indigo-400">Sub. Y.S. Yadav</h4>
+       <p class="text-xs text-indigo-300">Param Vir Chakra</p>
+      </div>
+      <div class="text-xs text-gray-300 space-y-1">
+       <p><strong>Battle:</strong> Kargil War, 1999</p>
+       <p><strong>Words:</strong> "Climb or Die"</p>
+       <p><strong>Legacy:</strong> Tiger Hill Hero</p>
+      </div>
+     </div><!-- Rifleman Sanjay Kumar -->
+     <div class="bg-gradient-to-br from-pink-900/40 to-gray-900 p-5 rounded-2xl border border-pink-500/40 hover:border-pink-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl fade-in-up stagger-8">
+      <div class="text-center mb-3">
+       <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#ec4899" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#ec4899" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#ec4899" font-size="8" font-weight="bold">
+         PVC
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-base font-bold text-pink-400">Rfn. Sanjay Kumar</h4>
+       <p class="text-xs text-pink-300">Param Vir Chakra</p>
+      </div>
+      <div class="text-xs text-gray-300 space-y-1">
+       <p><strong>Battle:</strong> Kargil War, 1999</p>
+       <p><strong>Words:</strong> "Charge Forward"</p>
+       <p><strong>Legacy:</strong> Area Flat Top Hero</p>
+      </div>
+     </div>
+    </div><!-- Maha Vir Chakra Heroes -->
+    <div class="mb-12">
+     <h3 class="font-['Cinzel'] text-3xl font-bold text-center mb-8 text-orange-400">🏅 Maha Vir Chakra Recipients</h3>
+     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6"><!-- Major Sandeep Unnikrishnan -->
+      <div class="bg-gradient-to-br from-blue-900/40 to-gray-900 p-5 rounded-2xl border border-blue-500/40 hover:border-blue-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+       <div class="text-center mb-3">
+        <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#3b82f6" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#3b82f6" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#3b82f6" font-size="8" font-weight="bold">
+          AC
+         </text>
+        </svg>
+        <h4 class="font-['Cinzel'] text-base font-bold text-blue-400">Maj. Sandeep Unnikrishnan</h4>
+        <p class="text-xs text-blue-300">Ashoka Chakra</p>
+       </div>
+       <div class="text-xs text-gray-300 space-y-1">
+        <p><strong>Battle:</strong> 26/11 Mumbai</p>
+        <p><strong>Words:</strong> "Do not come up"</p>
+        <p><strong>Legacy:</strong> NSG Black Cat Hero</p>
+       </div>
+      </div><!-- Colonel Narendra Kumar -->
+      <div class="bg-gradient-to-br from-green-900/40 to-gray-900 p-5 rounded-2xl border border-green-500/40 hover:border-green-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+       <div class="text-center mb-3">
+        <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#10b981" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#10b981" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <path d="M55 50 Q60 53 65 50" stroke="#000" stroke-width="1" fill="none" /> <text x="60" y="105" text-anchor="middle" fill="#10b981" font-size="8" font-weight="bold">
+          MVC
+         </text>
+        </svg>
+        <h4 class="font-['Cinzel'] text-base font-bold text-green-400">Col. Narendra Kumar</h4>
+        <p class="text-xs text-green-300">Maha Vir Chakra</p>
+       </div>
+       <div class="text-xs text-gray-300 space-y-1">
+        <p><strong>Battle:</strong> Siachen Glacier</p>
+        <p><strong>Words:</strong> "Siachen is pride"</p>
+        <p><strong>Legacy:</strong> Father of Siachen</p>
+       </div>
+      </div><!-- Wing Commander Abhinandan -->
+      <div class="bg-gradient-to-br from-indigo-900/40 to-gray-900 p-5 rounded-2xl border border-indigo-500/40 hover:border-indigo-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+       <div class="text-center mb-3">
+        <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#6366f1" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#3b82f6" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#6366f1" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-size="8" font-weight="bold">
+          VC
+         </text>
+        </svg>
+        <h4 class="font-['Cinzel'] text-base font-bold text-indigo-400">Wg. Cdr. Abhinandan</h4>
+        <p class="text-xs text-indigo-300">Vir Chakra</p>
+       </div>
+       <div class="text-xs text-gray-300 space-y-1">
+        <p><strong>Battle:</strong> Balakot Strike</p>
+        <p><strong>Words:</strong> "Classified info"</p>
+        <p><strong>Legacy:</strong> MiG-21 Pilot Hero</p>
+       </div>
+      </div><!-- Lieutenant Colonel Ardeshir Tarapore -->
+      <div class="bg-gradient-to-br from-purple-900/40 to-gray-900 p-5 rounded-2xl border border-purple-500/40 hover:border-purple-500/80 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+       <div class="text-center mb-3">
+        <svg class="w-20 h-20 mx-auto mb-3" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#8b5cf6" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#8b5cf6" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#8b5cf6" font-size="8" font-weight="bold">
+          PVC
+         </text>
+        </svg>
+        <h4 class="font-['Cinzel'] text-base font-bold text-purple-400">Lt. Col. A. Tarapore</h4>
+        <p class="text-xs text-purple-300">Param Vir Chakra</p>
+       </div>
+       <div class="text-xs text-gray-300 space-y-1">
+        <p><strong>Battle:</strong> 1965 War</p>
+        <p><strong>Words:</strong> "Fight to last round"</p>
+        <p><strong>Legacy:</strong> Tank Regiment Ace</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Tribute Section -->
+  <section id="tribute" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+     <h2 class="font-['Cinzel'] text-4xl md:text-5xl font-bold mb-6 text-orange-400">Tribute to Our Martyrs</h2>
+     <p class="text-xl text-gray-300 max-w-3xl mx-auto">In memory of those who laid down their lives for our freedom and security.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+     <div class="slide-in-left">
+      <div class="bg-gradient-to-br from-red-900/30 to-gray-900 p-8 rounded-2xl border border-red-500/30">
+       <div class="text-center mb-6">
+        <div class="text-6xl mb-4 memorial-flame">
+         🕯️
+        </div>
+        <h3 class="font-['Cinzel'] text-2xl font-bold text-red-400 mb-4">Eternal Flame</h3>
+       </div>
+       <div class="space-y-4 text-gray-300">
+        <p class="text-center italic">"A soldier's death is not the end of his life, but the beginning of his immortality."</p>
+        <div class="text-center">
+         <div class="inline-block bg-red-600/20 px-4 py-2 rounded-full"><span class="text-red-400 font-semibold">🌹 Never Forgotten 🌹</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="slide-in-right">
+      <div class="space-y-6">
+       <div class="bg-gradient-to-r from-orange-900/30 to-gray-900 p-6 rounded-xl border-l-4 border-orange-500">
+        <h4 class="font-['Cinzel'] text-lg font-bold text-orange-400 mb-2">1971 War</h4>
+        <p class="text-gray-300">Liberation of Bangladesh - 3,843 martyrs</p>
+       </div>
+       <div class="bg-gradient-to-r from-orange-900/30 to-gray-900 p-6 rounded-xl border-l-4 border-orange-500">
+        <h4 class="font-['Cinzel'] text-lg font-bold text-orange-400 mb-2">Kargil War 1999</h4>
+        <p class="text-gray-300">Operation Vijay - 527 brave hearts</p>
+       </div>
+       <div class="bg-gradient-to-r from-orange-900/30 to-gray-900 p-6 rounded-xl border-l-4 border-orange-500">
+        <h4 class="font-['Cinzel'] text-lg font-bold text-orange-400 mb-2">Counter Terrorism</h4>
+        <p class="text-gray-300">Ongoing sacrifice for peace</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Historic Battles Section -->
+  <section id="battles" class="py-20 bg-gradient-to-b from-black to-gray-900">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+     <h2 class="font-['Cinzel'] text-4xl md:text-5xl font-bold mb-6 text-orange-400">Historic Victories</h2>
+     <p class="text-xl text-gray-300 max-w-3xl mx-auto">Legendary battles that shaped our nation's destiny and showcased Indian Army's supremacy.</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+     <div class="bg-gradient-to-br from-green-900/30 to-gray-900 p-6 rounded-2xl border border-green-500/30 hover:border-green-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-1">
+      <div class="text-4xl mb-4">
+       🏆
+      </div>
+      <h3 class="font-['Cinzel'] text-xl font-bold text-green-400 mb-3">Battle of Longewala (1971)</h3>
+      <p class="text-gray-300 text-sm mb-4">120 Indian soldiers defeated 2000+ Pakistani troops with tanks</p>
+      <div class="text-xs text-green-300">
+       Victory Ratio: 1:17
+      </div>
+     </div>
+     <div class="bg-gradient-to-br from-blue-900/30 to-gray-900 p-6 rounded-2xl border border-blue-500/30 hover:border-blue-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-2">
+      <div class="text-4xl mb-4">
+       ⚔️
+      </div>
+      <h3 class="font-['Cinzel'] text-xl font-bold text-blue-400 mb-3">Kargil War (1999)</h3>
+      <p class="text-gray-300 text-sm mb-4">Reclaimed all occupied peaks from Pakistani intruders</p>
+      <div class="text-xs text-blue-300">
+       Operation Vijay - Complete Success
+      </div>
+     </div>
+     <div class="bg-gradient-to-br from-purple-900/30 to-gray-900 p-6 rounded-2xl border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-3">
+      <div class="text-4xl mb-4">
+       🎯
+      </div>
+      <h3 class="font-['Cinzel'] text-xl font-bold text-purple-400 mb-3">Surgical Strikes (2016)</h3>
+      <p class="text-gray-300 text-sm mb-4">Precision strikes across LoC against terror camps</p>
+      <div class="text-xs text-purple-300">
+       Zero Casualties - Maximum Impact
+      </div>
+     </div>
+     <div class="bg-gradient-to-br from-red-900/30 to-gray-900 p-6 rounded-2xl border border-red-500/30 hover:border-red-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-4">
+      <div class="text-4xl mb-4">
+       🛡️
+      </div>
+      <h3 class="font-['Cinzel'] text-xl font-bold text-red-400 mb-3">Siachen Glacier</h3>
+      <p class="text-gray-300 text-sm mb-4">World's highest battlefield - Defending since 1984</p>
+      <div class="text-xs text-red-300">
+       Altitude: 20,000+ feet
+      </div>
+     </div>
+     <div class="bg-gradient-to-br from-yellow-900/30 to-gray-900 p-6 rounded-2xl border border-yellow-500/30 hover:border-yellow-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-5">
+      <div class="text-4xl mb-4">
+       🏔️
+      </div>
+      <h3 class="font-['Cinzel'] text-xl font-bold text-yellow-400 mb-3">Galwan Valley (2020)</h3>
+      <p class="text-gray-300 text-sm mb-4">Brave stand against Chinese aggression</p>
+      <div class="text-xs text-yellow-300">
+       Defending LAC with Valor
+      </div>
+     </div>
+     <div class="bg-gradient-to-br from-indigo-900/30 to-gray-900 p-6 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-6">
+      <div class="text-4xl mb-4">
+       🎖️
+      </div>
+      <h3 class="font-['Cinzel'] text-xl font-bold text-indigo-400 mb-3">Uri Attack Response</h3>
+      <p class="text-gray-300 text-sm mb-4">Swift retaliation against terror attacks</p>
+      <div class="text-xs text-indigo-300">
+       Justice Delivered
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Epic Indian Army Battle Game Section -->
+  <section id="game" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+     <h2 class="font-['Cinzel'] text-4xl md:text-5xl font-bold mb-6 text-orange-400">🇮🇳 INDIAN ARMY WARFARE 🇮🇳</h2>
+     <p class="text-xl text-gray-300 max-w-3xl mx-auto">Command the Indian Army! Lead elite soldiers, deploy advanced weapons, and defend the motherland against all enemies!</p>
+    </div>
+    <div class="max-w-6xl mx-auto">
+     <div class="bg-gradient-to-br from-gray-800 to-black p-8 rounded-2xl border border-orange-500/30 shadow-2xl"><!-- Game Stats Dashboard -->
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-4 mb-6">
+       <div class="bg-gradient-to-r from-yellow-600 to-yellow-700 p-3 rounded-lg text-center transform hover:scale-105 transition-all">
+        <div class="text-2xl">
+         ⭐
+        </div>
+        <div class="text-sm font-bold">
+         Score
+        </div>
+        <div id="spaceScore" class="text-xl font-bold">
+         0
+        </div>
+       </div>
+       <div class="bg-gradient-to-r from-green-600 to-green-700 p-3 rounded-lg text-center transform hover:scale-105 transition-all">
+        <div class="text-2xl">
+         ❤️
+        </div>
+        <div class="text-sm font-bold">
+         Lives
+        </div>
+        <div id="spaceLives" class="text-xl font-bold">
+         3
+        </div>
+       </div>
+       <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-3 rounded-lg text-center transform hover:scale-105 transition-all">
+        <div class="text-2xl">
+         🛡️
+        </div>
+        <div class="text-sm font-bold">
+         Shield
+        </div>
+        <div id="spaceShield" class="text-xl font-bold">
+         100
+        </div>
+       </div>
+       <div class="bg-gradient-to-r from-purple-600 to-purple-700 p-3 rounded-lg text-center transform hover:scale-105 transition-all">
+        <div class="text-2xl">
+         🔫
+        </div>
+        <div class="text-sm font-bold">
+         Weapon
+        </div>
+        <div id="spaceWeapon" class="text-xl font-bold">
+         1
+        </div>
+       </div>
+       <div class="bg-gradient-to-r from-red-600 to-red-700 p-3 rounded-lg text-center transform hover:scale-105 transition-all">
+        <div class="text-2xl">
+         🎯
+        </div>
+        <div class="text-sm font-bold">
+         Combo
+        </div>
+        <div id="spaceCombo" class="text-xl font-bold">
+         0
+        </div>
+       </div>
+       <div class="bg-gradient-to-r from-indigo-600 to-indigo-700 p-3 rounded-lg text-center transform hover:scale-105 transition-all">
+        <div class="text-2xl">
+         🌊
+        </div>
+        <div class="text-sm font-bold">
+         Wave
+        </div>
+        <div id="spaceWave" class="text-xl font-bold">
+         1
+        </div>
+       </div>
+      </div><!-- Power-ups Display -->
+      <div class="mb-6">
+       <h3 class="font-['Cinzel'] text-xl font-bold text-orange-400 mb-4">⚡ Active Power-ups</h3>
+       <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="bg-gradient-to-r from-orange-700 to-red-700 p-3 rounded-lg text-center opacity-50" id="rapidFire">
+         <div class="text-2xl">
+          🔥
+         </div>
+         <div class="text-xs font-bold">
+          Rapid Fire
+         </div>
+         <div class="text-xs">
+          Triple Shot Rate
+         </div>
+        </div>
+        <div class="bg-gradient-to-r from-cyan-700 to-blue-700 p-3 rounded-lg text-center opacity-50" id="laserBeam">
+         <div class="text-2xl">
+          ⚡
+         </div>
+         <div class="text-xs font-bold">
+          Laser Beam
+         </div>
+         <div class="text-xs">
+          Piercing Shots
+         </div>
+        </div>
+        <div class="bg-gradient-to-r from-green-700 to-emerald-700 p-3 rounded-lg text-center opacity-50" id="shieldBoost">
+         <div class="text-2xl">
+          🛡️
+         </div>
+         <div class="text-xs font-bold">
+          Shield Boost
+         </div>
+         <div class="text-xs">
+          Extra Protection
+         </div>
+        </div>
+        <div class="bg-gradient-to-r from-purple-700 to-pink-700 p-3 rounded-lg text-center opacity-50" id="multiShot">
+         <div class="text-2xl">
+          💫
+         </div>
+         <div class="text-xs font-bold">
+          Multi-Shot
+         </div>
+         <div class="text-xs">
+          Spread Fire
+         </div>
+        </div>
+       </div>
+      </div><!-- Game Arena -->
+      <div class="relative">
+       <h3 class="font-['Cinzel'] text-xl font-bold text-orange-400 mb-4">🏔️ Indian Battlefield</h3>
+       <div id="spaceGameBoard" class="relative w-full h-96 bg-gradient-to-b from-green-800 via-yellow-700 to-brown-600 rounded-lg overflow-hidden border-4 border-orange-400 shadow-2xl"><!-- Animated Earth Background -->
+        <div class="absolute inset-0 overflow-hidden">
+         <div class="earth-terrain"></div>
+        </div><!-- Game Canvas -->
+        <canvas id="spaceCanvas" class="absolute inset-0 w-full h-full cursor-crosshair"></canvas><!-- HUD Overlay -->
+        <div class="absolute top-4 left-4 text-orange-300 text-sm font-bold">
+         <div>
+          🇮🇳 INDIAN ARMY COMMAND
+         </div>
+         <div class="text-xs">
+          Use WASD or Arrow Keys to move
+         </div>
+        </div>
+        <div class="absolute top-4 right-4 text-red-300 text-sm font-bold text-right">
+         <div>
+          ⚠️ ENEMY FORCES DETECTED
+         </div>
+         <div class="text-xs">
+          Space to fire • Collect supplies
+         </div>
+        </div><!-- Crosshair -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+         <div class="w-8 h-8 border-2 border-orange-400 rounded-full opacity-50"></div>
+         <div class="absolute top-1/2 left-1/2 w-4 h-0.5 bg-orange-400 transform -translate-x-1/2 -translate-y-1/2"></div>
+         <div class="absolute top-1/2 left-1/2 w-0.5 h-4 bg-orange-400 transform -translate-x-1/2 -translate-y-1/2"></div>
+        </div>
+       </div><!-- Game Controls -->
+       <div class="grid md:grid-cols-3 gap-4 mt-6"><button onclick="startSpaceGame()" class="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 px-6 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> 🇮🇳 Deploy Forces </button> <button onclick="pauseSpaceGame()" class="bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700 px-6 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> ⏸️ Tactical Pause </button> <button onclick="resetSpaceGame()" class="bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 px-6 py-4 rounded-lg font-semibold transition-all transform hover:scale-105 shadow-lg"> 🔄 New Operation </button>
+       </div>
+      </div>
+      <div id="spaceGameStatus" class="text-center text-lg font-semibold text-orange-400 mt-6 p-4 bg-gray-900 rounded-lg border border-orange-500/30">
+       🇮🇳 Ready for Battle! Press "Deploy Forces" to defend the motherland against enemy invasion!
+      </div><!-- Victory/Defeat Messages -->
+      <div id="spaceGameMessage" class="text-center mt-6 hidden">
+       <div class="inline-block bg-gradient-to-r from-orange-600 to-red-600 px-8 py-4 rounded-full shadow-2xl"><span class="font-['Cinzel'] text-2xl font-bold">🇮🇳 VICTORY FOR INDIA! 🇮🇳</span>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Memorial Section -->
+  <section id="memorial" class="py-20 bg-gradient-to-b from-gray-800 to-black">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+     <h2 class="font-['Cinzel'] text-4xl md:text-5xl font-bold mb-6 text-orange-400">War Memorial</h2>
+     <p class="text-xl text-gray-300 max-w-3xl mx-auto">Honoring the supreme sacrifice of our brave hearts who gave their today for our tomorrow.</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8 mb-16">
+     <div class="text-center fade-in-up stagger-1">
+      <div class="bg-gradient-to-br from-red-900/30 to-gray-900 p-8 rounded-2xl border border-red-500/30">
+       <div class="text-6xl mb-4 memorial-flame">
+        🕯️
+       </div>
+       <h3 class="font-['Cinzel'] text-xl font-bold text-red-400 mb-4">Amar Jawan Jyoti</h3>
+       <p class="text-gray-300">The eternal flame that burns in memory of our martyrs</p>
+      </div>
+     </div>
+     <div class="text-center fade-in-up stagger-2">
+      <div class="bg-gradient-to-br from-orange-900/30 to-gray-900 p-8 rounded-2xl border border-orange-500/30">
+       <div class="text-6xl mb-4">
+        🏛️
+       </div>
+       <h3 class="font-['Cinzel'] text-xl font-bold text-orange-400 mb-4">India Gate</h3>
+       <p class="text-gray-300">Memorial to 84,000 soldiers who died in World War I</p>
+      </div>
+     </div>
+     <div class="text-center fade-in-up stagger-3">
+      <div class="bg-gradient-to-br from-yellow-900/30 to-gray-900 p-8 rounded-2xl border border-yellow-500/30">
+       <div class="text-6xl mb-4">
+        🌺
+       </div>
+       <h3 class="font-['Cinzel'] text-xl font-bold text-yellow-400 mb-4">National War Memorial</h3>
+       <p class="text-gray-300">Dedicated to soldiers who made the ultimate sacrifice post-independence</p>
+      </div>
+     </div>
+    </div>
+    <div class="text-center">
+     <div class="bg-gradient-to-br from-gray-800 to-black p-8 rounded-2xl border border-orange-500/30 max-w-4xl mx-auto">
+      <blockquote class="text-2xl md:text-3xl font-light italic text-gray-200 mb-6 leading-relaxed">
+       "Some goals are so worthy, it's glorious even to fail."
+      </blockquote>
+      <p class="text-lg text-orange-300 font-semibold">- Captain Manoj Kumar Pandey, PVC</p>
+      <div class="mt-8 flex justify-center space-x-4">
+       <div class="w-4 h-4 bg-orange-500 rounded-full pulse-animation"></div>
+       <div class="w-4 h-4 bg-white rounded-full pulse-animation" style="animation-delay: 0.5s;"></div>
+       <div class="w-4 h-4 bg-green-500 rounded-full pulse-animation" style="animation-delay: 1s;"></div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Legacy Section -->
+  <section id="legacy" class="py-20 bg-gradient-to-b from-black to-gray-900">
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+     <h2 class="font-['Cinzel'] text-4xl md:text-5xl font-bold mb-6 text-orange-400">Eternal Legacy</h2>
+     <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12">Immortal words from our greatest heroes who defined courage and sacrifice</p>
+    </div><!-- Hero Quotes Gallery -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"><!-- Captain Vikram Batra -->
+     <div class="bg-gradient-to-br from-red-900/30 to-gray-900 p-6 rounded-2xl border border-red-500/30 hover:border-red-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-1">
+      <div class="text-center mb-4">
+       <svg class="hero-image mx-auto mb-4" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#ef4444" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#ef4444" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <path d="M55 50 Q60 55 65 50" stroke="#000" stroke-width="1" fill="none" /> <text x="60" y="105" text-anchor="middle" fill="#ef4444" font-size="8" font-weight="bold">
+         SHER SHAH
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-lg font-bold text-red-400">Captain Vikram Batra</h4>
+       <p class="text-sm text-red-300">Param Vir Chakra</p>
+      </div>
+      <blockquote class="text-sm italic text-gray-300 mb-3">
+       "Either I will come back after hoisting the Tricolor, or I will come back wrapped in it, but I will be back for sure."
+      </blockquote>
+      <p class="text-xs text-red-400 font-semibold">Kargil War Hero • "Yeh Dil Maange More!"</p>
+     </div><!-- Major Sandeep Unnikrishnan -->
+     <div class="bg-gradient-to-br from-blue-900/30 to-gray-900 p-6 rounded-2xl border border-blue-500/30 hover:border-blue-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-2">
+      <div class="text-center mb-4">
+       <svg class="hero-image mx-auto mb-4" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#3b82f6" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#3b82f6" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#3b82f6" font-size="8" font-weight="bold">
+         NSG HERO
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-lg font-bold text-blue-400">Major Sandeep Unnikrishnan</h4>
+       <p class="text-sm text-blue-300">Ashoka Chakra</p>
+      </div>
+      <blockquote class="text-sm italic text-gray-300 mb-3">
+       "Do not come up, I will handle them."
+      </blockquote>
+      <p class="text-xs text-blue-400 font-semibold">26/11 Mumbai Hero • NSG Black Cat Commando</p>
+     </div><!-- Colonel Narendra Kumar -->
+     <div class="bg-gradient-to-br from-green-900/30 to-gray-900 p-6 rounded-2xl border border-green-500/30 hover:border-green-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-3">
+      <div class="text-center mb-4">
+       <svg class="hero-image mx-auto mb-4" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#10b981" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#10b981" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <path d="M55 50 Q60 53 65 50" stroke="#000" stroke-width="1" fill="none" /> <text x="60" y="105" text-anchor="middle" fill="#10b981" font-size="8" font-weight="bold">
+         SIACHEN
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-lg font-bold text-green-400">Colonel Narendra Kumar</h4>
+       <p class="text-sm text-green-300">Siachen Pioneer</p>
+      </div>
+      <blockquote class="text-sm italic text-gray-300 mb-3">
+       "Siachen is not just a glacier, it's our national pride."
+      </blockquote>
+      <p class="text-xs text-green-400 font-semibold">Father of Siachen • Highest Battlefield</p>
+     </div><!-- Lieutenant Colonel Ardeshir Tarapore -->
+     <div class="bg-gradient-to-br from-purple-900/30 to-gray-900 p-6 rounded-2xl border border-purple-500/30 hover:border-purple-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-4">
+      <div class="text-center mb-4">
+       <svg class="hero-image mx-auto mb-4" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#8b5cf6" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#8b5cf6" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#8b5cf6" font-size="8" font-weight="bold">
+         TANK ACE
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-lg font-bold text-purple-400">Lt. Col. Ardeshir Tarapore</h4>
+       <p class="text-sm text-purple-300">Param Vir Chakra</p>
+      </div>
+      <blockquote class="text-sm italic text-gray-300 mb-3">
+       "We will not withdraw an inch but will fight to our last man and our last round."
+      </blockquote>
+      <p class="text-xs text-purple-400 font-semibold">1965 War Hero • Poona Horse Regiment</p>
+     </div><!-- Captain Manoj Pandey -->
+     <div class="bg-gradient-to-br from-yellow-900/30 to-gray-900 p-6 rounded-2xl border border-yellow-500/30 hover:border-yellow-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-5">
+      <div class="text-center mb-4">
+       <svg class="hero-image mx-auto mb-4" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#eab308" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#10b981" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#eab308" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <path d="M55 50 Q60 53 65 50" stroke="#000" stroke-width="1" fill="none" /> <text x="60" y="105" text-anchor="middle" fill="#eab308" font-size="8" font-weight="bold">
+         GORKHA
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-lg font-bold text-yellow-400">Lt. Manoj Kumar Pandey</h4>
+       <p class="text-sm text-yellow-300">Param Vir Chakra</p>
+      </div>
+      <blockquote class="text-sm italic text-gray-300 mb-3">
+       "Na Chodnu" (Never Leave/Give Up)
+      </blockquote>
+      <p class="text-xs text-yellow-400 font-semibold">Youngest PVC • Kargil War Hero</p>
+     </div><!-- Wing Commander Abhinandan Varthaman -->
+     <div class="bg-gradient-to-br from-indigo-900/30 to-gray-900 p-6 rounded-2xl border border-indigo-500/30 hover:border-indigo-500/60 transition-all duration-300 transform hover:scale-105 fade-in-up stagger-6">
+      <div class="text-center mb-4">
+       <svg class="hero-image mx-auto mb-4" viewbox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="58" fill="#1f2937" stroke="#6366f1" stroke-width="3" /> <circle cx="60" cy="45" r="18" fill="#fbbf24" /> <rect x="45" y="60" width="30" height="35" fill="#3b82f6" /> <rect x="40" y="70" width="40" height="12" fill="#374151" /> <polygon points="60,20 67,35 53,35" fill="#6366f1" /> <rect x="35" y="75" width="50" height="4" fill="#ffd700" /> <circle cx="55" cy="40" r="2" fill="#000" /> <circle cx="65" cy="40" r="2" fill="#000" /> <rect x="50" y="48" width="20" height="2" fill="#000" /> <text x="60" y="105" text-anchor="middle" fill="#6366f1" font-size="8" font-weight="bold">
+         PILOT
+        </text>
+       </svg>
+       <h4 class="font-['Cinzel'] text-lg font-bold text-indigo-400">Wg. Cdr. Abhinandan</h4>
+       <p class="text-sm text-indigo-300">Vir Chakra</p>
+      </div>
+      <blockquote class="text-sm italic text-gray-300 mb-3">
+       "I am sorry sir, that is classified information."
+      </blockquote>
+      <p class="text-xs text-indigo-400 font-semibold">Balakot Hero • MiG-21 Pilot</p>
+     </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+     <div class="slide-in-left">
+      <h3 class="font-['Cinzel'] text-3xl font-bold mb-6 text-orange-400">Our Sacred Oath</h3>
+      <div class="space-y-4 text-lg text-gray-300 leading-relaxed">
+       <p>🇮🇳 To protect the sovereignty and integrity of India</p>
+       <p>⚔️ To defend the nation against all enemies</p>
+       <p>🛡️ To uphold the Constitution and democratic values</p>
+       <p>🏔️ To serve in any terrain, any weather, any condition</p>
+       <p>❤️ To put the nation before self, always</p>
+      </div>
+     </div>
+     <div class="relative slide-in-right">
+      <div class="bg-gradient-to-br from-orange-600 to-red-700 p-8 rounded-2xl shadow-2xl">
+       <div class="text-center">
+        <div class="text-6xl mb-4">
+         🇮🇳
+        </div>
+        <h4 class="font-['Cinzel'] text-2xl font-bold mb-4">Jai Hind!</h4>
+        <p class="text-lg">Victory to India!</p>
+       </div>
+      </div>
+      <div class="absolute -top-4 -right-4 w-24 h-24 bg-orange-500/20 rounded-full animate-pulse"></div>
+      <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-red-500/20 rounded-full animate-pulse" style="animation-delay: -1s;"></div>
+     </div>
+    </div>
+   </div>
+  </section><!-- Enhanced Animated Footer -->
+  <footer class="bg-gradient-to-b from-black via-gray-900 to-black py-20 border-t border-orange-500/30 relative overflow-hidden"><!-- Animated Background Elements -->
+   <div class="absolute inset-0">
+    <div class="absolute top-10 left-10 w-32 h-32 bg-orange-500/10 rounded-full blur-xl animate-pulse"></div>
+    <div class="absolute bottom-20 right-20 w-48 h-48 bg-green-500/10 rounded-full blur-2xl animate-pulse" style="animation-delay: -2s;"></div>
+    <div class="absolute top-1/2 left-1/3 w-24 h-24 bg-red-500/10 rounded-full blur-lg animate-pulse" style="animation-delay: -4s;"></div>
+    <div class="absolute bottom-1/3 left-1/4 w-40 h-40 bg-blue-500/10 rounded-full blur-xl animate-pulse" style="animation-delay: -1s;"></div>
+   </div>
+   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"><!-- Eternal Gratitude Section -->
+    <div class="text-center mb-16">
+     <div class="bounce-in stagger-1">
+      <h3 class="font-['Cinzel'] text-4xl font-bold text-orange-400 mb-6 glow-text">Eternal Gratitude</h3>
+      <p class="text-gray-300 text-xl max-w-3xl mx-auto leading-relaxed">To every soldier who stands guard while we sleep, to every family that sacrifices for our freedom, and to every hero who made the ultimate sacrifice - we salute you.</p>
+     </div>
+    </div><!-- Creator Credits Section -->
+    <div class="grid md:grid-cols-2 gap-12 mb-16"><!-- Made with Love Section -->
+     <div class="slide-in-left stagger-2">
+      <div class="bg-gradient-to-br from-red-900/40 via-orange-900/30 to-yellow-900/40 p-8 rounded-3xl border-2 border-orange-500/40 hover:border-orange-500/70 transition-all duration-500 transform hover:scale-105 shadow-2xl">
+       <div class="text-center mb-6">
+        <div class="text-6xl mb-4 heartbeat">
+         ❤️
+        </div>
+        <h4 class="font-['Cinzel'] text-2xl font-bold mb-4"><span class="rainbow-text">Made with Love</span></h4>
+       </div>
+       <div class="space-y-4 text-center">
+        <div class="zoom-in stagger-3">
+         <p class="text-2xl font-bold text-orange-400 mb-2"><span class="dancing-letters">S</span><span class="dancing-letters" style="animation-delay: 0.1s;">a</span><span class="dancing-letters" style="animation-delay: 0.2s;">t</span><span class="dancing-letters" style="animation-delay: 0.3s;">v</span><span class="dancing-letters" style="animation-delay: 0.4s;">i</span><span class="dancing-letters" style="animation-delay: 0.5s;">k</span></p>
+         <p class="text-lg text-gray-300">Creator &amp; Developer</p>
+        </div>
+        <div class="flip-in stagger-4">
+         <p class="text-lg text-orange-300">Student of <span class="font-bold glow-text">Ishank Sir</span></p>
+        </div>
+        <div class="rotate-in stagger-5">
+         <div class="inline-block bg-gradient-to-r from-orange-500 to-red-600 px-6 py-3 rounded-full shadow-lg"><span class="text-white font-bold text-lg wave-animation inline-block">🇮🇳</span> <span class="text-white font-bold ml-2">Proud Indian Developer</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Mentor Tribute Section -->
+     <div class="slide-in-right stagger-6">
+      <div class="bg-gradient-to-br from-blue-900/40 via-purple-900/30 to-indigo-900/40 p-8 rounded-3xl border-2 border-blue-500/40 hover:border-blue-500/70 transition-all duration-500 transform hover:scale-105 shadow-2xl">
+       <div class="text-center mb-6">
+        <div class="text-6xl mb-4 rotate-in">
+         🚀
+        </div>
+        <h4 class="font-['Cinzel'] text-2xl font-bold text-blue-400 mb-4 typewriter">Mentor &amp; Inspiration</h4>
+       </div>
+       <div class="space-y-4">
+        <div class="bounce-in stagger-7">
+         <h5 class="text-xl font-bold text-blue-300 mb-2">Ishank Sir</h5>
+         <p class="text-sm text-gray-300 leading-relaxed">AI Product Builder who thrives in the chaos of building 0-to-1 consumer tech platforms</p>
+        </div>
+        <div class="slide-up stagger-8">
+         <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 p-4 rounded-xl border border-blue-500/30">
+          <p class="text-sm text-blue-200 mb-2"><span class="font-bold text-yellow-400">Co-founded Sqilco (EdTech)</span></p>
+          <p class="text-xs text-gray-300 mb-1">• Scaled to ₹1.4Cr revenue</p>
+          <p class="text-xs text-gray-300 mb-1">• Led cross-functional team of 17 people</p>
+          <p class="text-xs text-gray-300 mb-1">• Raised ₹70L from Ultra HNIs</p>
+          <p class="text-xs text-gray-300">• Served 480+ students with AI-powered platforms</p>
+         </div>
+        </div>
+        <div class="zoom-in stagger-9">
+         <div class="text-center">
+          <p class="text-lg font-bold text-purple-400 mb-2">🙏 Thank You Sir!</p>
+          <p class="text-sm text-gray-300 italic">For your mentorship and inspiration</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div><!-- Respect Section -->
+    <div class="text-center mb-12">
+     <div class="flip-in stagger-10">
+      <div class="bg-gradient-to-br from-green-900/40 to-yellow-900/40 p-6 rounded-2xl border border-green-500/40 max-w-md mx-auto">
+       <div class="text-4xl mb-3 bounce-in">
+        🎖️
+       </div>
+       <p class="text-lg font-bold text-green-400 mb-2">Deep Respect to</p>
+       <p class="text-xl font-bold text-yellow-400">Col Arun Datta</p>
+       <p class="text-sm text-gray-300 mt-2">A true hero and inspiration</p>
+      </div>
+     </div>
+    </div><!-- Copyright and Rights Section -->
+    <div class="border-t border-gray-700 pt-12">
+     <div class="text-center space-y-6">
+      <div class="slide-up stagger-11">
+       <div class="bg-gradient-to-r from-orange-600/20 to-red-600/20 p-6 rounded-2xl border border-orange-500/40 max-w-2xl mx-auto">
+        <h4 class="font-['Cinzel'] text-xl font-bold text-orange-400 mb-4 glow-text">© All Rights Reserved</h4>
+        <p class="text-lg font-semibold text-white mb-2">This website and all its content are exclusively owned by</p>
+        <p class="text-2xl font-bold rainbow-text mb-4">SATVIK</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-gray-300">
+         <div class="bounce-in stagger-12">
+          <p class="font-semibold text-orange-300">Design &amp; Development</p>
+          <p>© 2025 Satvik</p>
+         </div>
+         <div class="bounce-in stagger-12" style="animation-delay: 1.3s;">
+          <p class="font-semibold text-orange-300">Content &amp; Research</p>
+          <p>© 2025 Satvik</p>
+         </div>
+         <div class="bounce-in stagger-12" style="animation-delay: 1.4s;">
+          <p class="font-semibold text-orange-300">Game Development</p>
+          <p>© 2025 Satvik</p>
+         </div>
+        </div>
+       </div>
+      </div>
+      <div class="rotate-in stagger-12">
+       <div class="flex justify-center items-center space-x-4 text-2xl"><span class="wave-animation">🇮🇳</span> <span class="font-['Cinzel'] text-xl font-bold text-orange-400 glow-text">JAI HIND!</span> <span class="wave-animation" style="animation-delay: -1s;">🇮🇳</span>
+       </div>
+       <p class="text-sm text-gray-400 mt-4">Proudly Made in India with Love and Respect</p>
+      </div>
+     </div>
+    </div>
+   </div><!-- Floating Animation Elements -->
+   <div class="absolute top-20 left-20 floating-animation">
+    <div class="text-4xl">
+     ⭐
+    </div>
+   </div>
+   <div class="absolute bottom-32 right-32 floating-animation" style="animation-delay: -2s;">
+    <div class="text-3xl">
+     🏆
+    </div>
+   </div>
+   <div class="absolute top-1/2 right-1/4 floating-animation" style="animation-delay: -4s;">
+    <div class="text-2xl">
+     🎖️
+    </div>
+   </div>
+   <div class="absolute bottom-1/4 left-1/3 floating-animation" style="animation-delay: -1s;">
+    <div class="text-3xl">
+     🚀
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Epic 3D Space Battle Game Variables
+        let spaceScore = 0;
+        let spaceLives = 3;
+        let spaceShield = 100;
+        let spaceWeapon = 1;
+        let spaceCombo = 0;
+        let spaceWave = 1;
+        let spaceGameActive = false;
+        let spaceGamePaused = false;
+        let spaceCanvas = null;
+        let spaceCtx = null;
+        let spaceAnimationId = null;
+        let spaceLastTime = 0;
+        
+        // Game Objects
+        let spacePlayer = null;
+        let spaceEnemies = [];
+        let spaceBullets = [];
+        let spaceEnemyBullets = [];
+        let spacePowerUps = [];
+        let spaceExplosions = [];
+        let spaceParticles = [];
+        
+        // Input handling
+        let spaceKeys = {};
+        let spaceMouseX = 0;
+        let spaceMouseY = 0;
+        
+        // Power-up states
+        let powerUps = {
+            rapidFire: { active: false, timer: 0, duration: 5000 },
+            laserBeam: { active: false, timer: 0, duration: 8000 },
+            shieldBoost: { active: false, timer: 0, duration: 10000 },
+            multiShot: { active: false, timer: 0, duration: 6000 }
+        };
+
+        // Initialize Space Game
+        function initializeSpaceGame() {
+            spaceCanvas = document.getElementById('spaceCanvas');
+            if (!spaceCanvas) return;
+            
+            spaceCtx = spaceCanvas.getContext('2d');
+            spaceCanvas.width = spaceCanvas.offsetWidth;
+            spaceCanvas.height = spaceCanvas.offsetHeight;
+            
+            // Initialize player
+            spacePlayer = {
+                x: spaceCanvas.width / 2,
+                y: spaceCanvas.height - 60,
+                width: 40,
+                height: 40,
+                speed: 5,
+                health: 100,
+                lastShot: 0,
+                fireRate: 200
+            };
+            
+            // Reset game state
+            spaceEnemies = [];
+            spaceBullets = [];
+            spaceEnemyBullets = [];
+            spacePowerUps = [];
+            spaceExplosions = [];
+            spaceParticles = [];
+            spaceScore = 0;
+            spaceLives = 3;
+            spaceShield = 100;
+            spaceWeapon = 1;
+            spaceCombo = 0;
+            spaceWave = 1;
+            spaceGameActive = false;
+            spaceGamePaused = false;
+            
+            // Reset power-ups
+            Object.keys(powerUps).forEach(key => {
+                powerUps[key].active = false;
+                powerUps[key].timer = 0;
+                document.getElementById(key).style.opacity = '0.5';
+            });
+            
+            updateSpaceStats();
+            setupSpaceControls();
+        }
+
+        // Setup Controls
+        function setupSpaceControls() {
+            // Keyboard controls
+            document.addEventListener('keydown', (e) => {
+                spaceKeys[e.key.toLowerCase()] = true;
+                if (e.key === ' ' || e.key === 'Spacebar') {
+                    e.preventDefault();
+                    if (spaceGameActive) shootBullet();
+                }
+            });
+            
+            document.addEventListener('keyup', (e) => {
+                spaceKeys[e.key.toLowerCase()] = false;
+            });
+            
+            // Mouse controls
+            spaceCanvas.addEventListener('mousemove', (e) => {
+                const rect = spaceCanvas.getBoundingClientRect();
+                spaceMouseX = e.clientX - rect.left;
+                spaceMouseY = e.clientY - rect.top;
+            });
+            
+            spaceCanvas.addEventListener('click', (e) => {
+                if (spaceGameActive) shootBullet();
+            });
+        }
+
+        // Start Space Game
+        function startSpaceGame() {
+            if (spaceGameActive) return;
+            
+            spaceGameActive = true;
+            spaceGamePaused = false;
+            updateSpaceStatus('🇮🇳 FORCES DEPLOYED! Defend the motherland from enemy invasion!');
+            
+            // Start spawning enemies
+            setTimeout(spawnSpaceEnemies, 1000);
+            
+            startSpaceGameLoop();
+        }
+
+        // Pause Space Game
+        function pauseSpaceGame() {
+            spaceGamePaused = !spaceGamePaused;
+            updateSpaceStatus(spaceGamePaused ? '⏸️ Operation Paused' : '▶️ Operation Resumed');
+        }
+
+        // Reset Space Game
+        function resetSpaceGame() {
+            spaceGameActive = false;
+            if (spaceAnimationId) {
+                cancelAnimationFrame(spaceAnimationId);
+            }
+            
+            setTimeout(() => {
+                initializeSpaceGame();
+                updateSpaceStatus('🇮🇳 Ready for new operation! Press "Deploy Forces" to start!');
+            }, 100);
+        }
+
+        // Game Loop
+        function startSpaceGameLoop() {
+            function spaceGameLoop(currentTime) {
+                if (!spaceGameActive) return;
+                
+                const deltaTime = currentTime - spaceLastTime;
+                spaceLastTime = currentTime;
+                
+                if (!spaceGamePaused) {
+                    updateSpaceGame(deltaTime);
+                    renderSpaceGame();
+                }
+                
+                spaceAnimationId = requestAnimationFrame(spaceGameLoop);
+            }
+            
+            spaceAnimationId = requestAnimationFrame(spaceGameLoop);
+        }
+
+        // Update Game Logic (Optimized)
+        function updateSpaceGame(deltaTime) {
+            // Limit deltaTime to prevent lag spikes
+            deltaTime = Math.min(deltaTime, 50);
+            
+            // Update player movement (smoother controls)
+            const moveSpeed = spacePlayer.speed * (deltaTime / 16);
+            if (spaceKeys['a'] || spaceKeys['arrowleft']) {
+                spacePlayer.x = Math.max(25, spacePlayer.x - moveSpeed);
+            }
+            if (spaceKeys['d'] || spaceKeys['arrowright']) {
+                spacePlayer.x = Math.min(spaceCanvas.width - 25, spacePlayer.x + moveSpeed);
+            }
+            if (spaceKeys['w'] || spaceKeys['arrowup']) {
+                spacePlayer.y = Math.max(25, spacePlayer.y - moveSpeed);
+            }
+            if (spaceKeys['s'] || spaceKeys['arrowdown']) {
+                spacePlayer.y = Math.min(spaceCanvas.height - 25, spacePlayer.y + moveSpeed);
+            }
+            
+            // Auto-fire when holding space
+            if (spaceKeys[' '] && Date.now() - spacePlayer.lastShot > spacePlayer.fireRate) {
+                shootBullet();
+            }
+            
+            // Update power-ups
+            Object.keys(powerUps).forEach(key => {
+                if (powerUps[key].active) {
+                    powerUps[key].timer -= deltaTime;
+                    if (powerUps[key].timer <= 0) {
+                        powerUps[key].active = false;
+                        document.getElementById(key).style.opacity = '0.5';
+                        updateSpaceStatus(`⚡ ${key.toUpperCase()} power-up expired!`);
+                    }
+                }
+            });
+            
+            // Update bullets
+            spaceBullets.forEach((bullet, index) => {
+                bullet.y -= bullet.speed;
+                if (bullet.y < 0) {
+                    spaceBullets.splice(index, 1);
+                }
+            });
+            
+            // Update enemy bullets
+            spaceEnemyBullets.forEach((bullet, index) => {
+                bullet.y += bullet.speed;
+                if (bullet.y > spaceCanvas.height) {
+                    spaceEnemyBullets.splice(index, 1);
+                }
+                
+                // Check collision with player
+                if (checkCollision(bullet, spacePlayer)) {
+                    spaceEnemyBullets.splice(index, 1);
+                    takeDamage(20);
+                    createSpaceExplosion(spacePlayer.x, spacePlayer.y, '#ff4444');
+                }
+            });
+            
+            // Update enemies
+            spaceEnemies.forEach((enemy, index) => {
+                enemy.y += enemy.speed;
+                enemy.x += Math.sin(enemy.y * 0.01) * enemy.wobble;
+                
+                // Enemy shooting
+                if (Math.random() < 0.002 && enemy.y > 50) {
+                    spaceEnemyBullets.push({
+                        x: enemy.x,
+                        y: enemy.y + 20,
+                        width: 4,
+                        height: 8,
+                        speed: 3,
+                        color: '#ff4444'
+                    });
+                }
+                
+                // Remove enemies that go off screen
+                if (enemy.y > spaceCanvas.height + 50) {
+                    spaceEnemies.splice(index, 1);
+                    takeDamage(10);
+                }
+            });
+            
+            // Check bullet-enemy collisions
+            spaceBullets.forEach((bullet, bulletIndex) => {
+                spaceEnemies.forEach((enemy, enemyIndex) => {
+                    if (checkCollision(bullet, enemy)) {
+                        // Hit enemy
+                        enemy.health -= bullet.damage;
+                        spaceBullets.splice(bulletIndex, 1);
+                        
+                        if (enemy.health <= 0) {
+                            // Enemy destroyed
+                            spaceScore += enemy.points;
+                            spaceCombo++;
+                            
+                            // Combo bonus
+                            if (spaceCombo % 10 === 0) {
+                                spaceScore += spaceCombo * 10;
+                                updateSpaceStatus(`🔥 ${spaceCombo} COMBO! Bonus points!`);
+                            }
+                            
+                            createSpaceExplosion(enemy.x, enemy.y, '#00ff88');
+                            spaceEnemies.splice(enemyIndex, 1);
+                            
+                            // Chance to drop power-up
+                            if (Math.random() < 0.15) {
+                                spawnPowerUp(enemy.x, enemy.y);
+                            }
+                        } else {
+                            createSpaceExplosion(bullet.x, bullet.y, '#ffaa00');
+                        }
+                    }
+                });
+            });
+            
+            // Update power-ups
+            spacePowerUps.forEach((powerUp, index) => {
+                powerUp.y += powerUp.speed;
+                powerUp.rotation += 0.1;
+                
+                if (powerUp.y > spaceCanvas.height) {
+                    spacePowerUps.splice(index, 1);
+                } else if (checkCollision(powerUp, spacePlayer)) {
+                    activatePowerUp(powerUp.type);
+                    spacePowerUps.splice(index, 1);
+                    createSpaceExplosion(powerUp.x, powerUp.y, '#00ffff');
+                }
+            });
+            
+            // Update explosions
+            spaceExplosions.forEach((explosion, index) => {
+                explosion.life -= deltaTime;
+                explosion.scale += deltaTime * 0.003;
+                explosion.opacity -= deltaTime * 0.002;
+                
+                if (explosion.life <= 0) {
+                    spaceExplosions.splice(index, 1);
+                }
+            });
+            
+            // Update particles
+            spaceParticles.forEach((particle, index) => {
+                particle.x += particle.vx;
+                particle.y += particle.vy;
+                particle.life -= deltaTime;
+                particle.opacity -= deltaTime * 0.001;
+                
+                if (particle.life <= 0) {
+                    spaceParticles.splice(index, 1);
+                }
+            });
+            
+            // Spawn new enemies
+            if (Math.random() < 0.02 + (spaceWave * 0.005)) {
+                spawnSpaceEnemy();
+            }
+            
+            // Check wave progression
+            if (spaceScore > spaceWave * 1000) {
+                spaceWave++;
+                updateSpaceStatus(`🌊 Wave ${spaceWave} incoming! Enemies getting stronger!`);
+            }
+            
+            updateSpaceStats();
+        }
+
+        // Shoot Bullet
+        function shootBullet() {
+            if (Date.now() - spacePlayer.lastShot < spacePlayer.fireRate) return;
+            
+            const fireRate = powerUps.rapidFire.active ? spacePlayer.fireRate / 3 : spacePlayer.fireRate;
+            if (Date.now() - spacePlayer.lastShot < fireRate) return;
+            
+            spacePlayer.lastShot = Date.now();
+            
+            if (powerUps.multiShot.active) {
+                // Multi-shot
+                for (let i = -2; i <= 2; i++) {
+                    spaceBullets.push({
+                        x: spacePlayer.x + (i * 10),
+                        y: spacePlayer.y - 10,
+                        width: 4,
+                        height: 12,
+                        speed: 8,
+                        damage: spaceWeapon * 25,
+                        color: powerUps.laserBeam.active ? '#00ffff' : '#ffff00'
+                    });
+                }
+            } else {
+                spaceBullets.push({
+                    x: spacePlayer.x,
+                    y: spacePlayer.y - 10,
+                    width: 4,
+                    height: 12,
+                    speed: 8,
+                    damage: spaceWeapon * 25,
+                    color: powerUps.laserBeam.active ? '#00ffff' : '#ffff00'
+                });
+            }
+            
+            // Create muzzle flash
+            createSpaceParticles(spacePlayer.x, spacePlayer.y - 10, '#ffff00', 5);
+        }
+
+        // Spawn Enemy
+        function spawnSpaceEnemy() {
+            const enemyTypes = [
+                { health: 50, points: 100, speed: 1, color: '#ff4444', size: 20 },
+                { health: 30, points: 150, speed: 2, color: '#ff8844', size: 15 },
+                { health: 100, points: 300, speed: 0.5, color: '#8844ff', size: 30 },
+                { health: 200, points: 500, speed: 0.8, color: '#ff44ff', size: 35 }
+            ];
+            
+            const type = enemyTypes[Math.min(Math.floor(Math.random() * enemyTypes.length), Math.floor(spaceWave / 2))];
+            
+            spaceEnemies.push({
+                x: Math.random() * (spaceCanvas.width - 40) + 20,
+                y: -30,
+                width: type.size,
+                height: type.size,
+                health: type.health + (spaceWave * 10),
+                maxHealth: type.health + (spaceWave * 10),
+                points: type.points,
+                speed: type.speed + (spaceWave * 0.1),
+                color: type.color,
+                wobble: Math.random() * 2 - 1
+            });
+        }
+
+        // Spawn Enemies Wave
+        function spawnSpaceEnemies() {
+            if (!spaceGameActive) return;
+            
+            const enemyCount = Math.min(3 + spaceWave, 8);
+            for (let i = 0; i < enemyCount; i++) {
+                setTimeout(() => spawnSpaceEnemy(), i * 500);
+            }
+            
+            setTimeout(spawnSpaceEnemies, Math.max(5000 - (spaceWave * 200), 2000));
+        }
+
+        // Spawn Power-up
+        function spawnPowerUp(x, y) {
+            const types = ['rapidFire', 'laserBeam', 'shieldBoost', 'multiShot'];
+            const type = types[Math.floor(Math.random() * types.length)];
+            
+            spacePowerUps.push({
+                x: x,
+                y: y,
+                width: 20,
+                height: 20,
+                speed: 2,
+                type: type,
+                rotation: 0,
+                color: '#00ffff'
+            });
+        }
+
+        // Activate Power-up
+        function activatePowerUp(type) {
+            powerUps[type].active = true;
+            powerUps[type].timer = powerUps[type].duration;
+            document.getElementById(type).style.opacity = '1';
+            
+            const messages = {
+                rapidFire: '🔥 RAPID FIRE ACTIVATED!',
+                laserBeam: '⚡ LASER BEAM ACTIVATED!',
+                shieldBoost: '🛡️ SHIELD BOOST ACTIVATED!',
+                multiShot: '💫 MULTI-SHOT ACTIVATED!'
+            };
+            
+            updateSpaceStatus(messages[type]);
+            
+            if (type === 'shieldBoost') {
+                spaceShield = Math.min(spaceShield + 50, 100);
+            }
+        }
+
+        // Take Damage
+        function takeDamage(amount) {
+            if (powerUps.shieldBoost.active) {
+                amount = Math.floor(amount / 2);
+            }
+            
+            spaceShield -= amount;
+            spaceCombo = 0; // Reset combo on hit
+            
+            if (spaceShield <= 0) {
+                spaceLives--;
+                spaceShield = 100;
+                
+                if (spaceLives <= 0) {
+                    spaceGameOver();
+                } else {
+                    updateSpaceStatus(`💥 Ship damaged! ${spaceLives} lives remaining!`);
+                    // Screen shake
+                    document.getElementById('spaceGameBoard').classList.add('screen-shake');
+                    setTimeout(() => {
+                        document.getElementById('spaceGameBoard').classList.remove('screen-shake');
+                    }, 300);
+                }
+            }
+        }
+
+        // Check Collision
+        function checkCollision(obj1, obj2) {
+            return obj1.x < obj2.x + obj2.width &&
+                   obj1.x + obj1.width > obj2.x &&
+                   obj1.y < obj2.y + obj2.height &&
+                   obj1.y + obj1.height > obj2.y;
+        }
+
+        // Create Explosion
+        function createSpaceExplosion(x, y, color) {
+            spaceExplosions.push({
+                x: x,
+                y: y,
+                scale: 0.5,
+                opacity: 1,
+                life: 800,
+                color: color
+            });
+            
+            createSpaceParticles(x, y, color, 10);
+        }
+
+        // Create Particles
+        function createSpaceParticles(x, y, color, count) {
+            for (let i = 0; i < count; i++) {
+                spaceParticles.push({
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 6,
+                    vy: (Math.random() - 0.5) * 6,
+                    life: 1000,
+                    opacity: 1,
+                    color: color,
+                    size: Math.random() * 3 + 1
+                });
+            }
+        }
+
+        // Render Game
+        function renderSpaceGame() {
+            // Clear canvas with earth battlefield background
+            const gradient = spaceCtx.createLinearGradient(0, 0, 0, spaceCanvas.height);
+            gradient.addColorStop(0, '#065f46');
+            gradient.addColorStop(0.3, '#166534');
+            gradient.addColorStop(0.7, '#a16207');
+            gradient.addColorStop(1, '#92400e');
+            spaceCtx.fillStyle = gradient;
+            spaceCtx.fillRect(0, 0, spaceCanvas.width, spaceCanvas.height);
+            
+            // Draw player (Indian Army Tank)
+            spaceCtx.save();
+            spaceCtx.translate(spacePlayer.x, spacePlayer.y);
+            
+            // Tank body
+            spaceCtx.fillStyle = '#22c55e';
+            spaceCtx.fillRect(-20, -10, 40, 20);
+            
+            // Tank turret
+            spaceCtx.fillStyle = '#16a34a';
+            spaceCtx.fillRect(-12, -15, 24, 15);
+            
+            // Tank cannon
+            spaceCtx.fillStyle = '#374151';
+            spaceCtx.fillRect(-2, -25, 4, 15);
+            
+            // Indian flag colors
+            spaceCtx.fillStyle = '#ff9933';
+            spaceCtx.fillRect(-18, -8, 36, 3);
+            spaceCtx.fillStyle = '#ffffff';
+            spaceCtx.fillRect(-18, -5, 36, 3);
+            spaceCtx.fillStyle = '#138808';
+            spaceCtx.fillRect(-18, -2, 36, 3);
+            
+            // Tank tracks
+            spaceCtx.fillStyle = '#1f2937';
+            spaceCtx.fillRect(-22, 8, 44, 4);
+            
+            spaceCtx.restore();
+            
+            // Draw bullets
+            spaceBullets.forEach(bullet => {
+                spaceCtx.fillStyle = bullet.color;
+                spaceCtx.fillRect(bullet.x - bullet.width/2, bullet.y, bullet.width, bullet.height);
+                
+                // Bullet trail
+                spaceCtx.fillStyle = bullet.color + '44';
+                spaceCtx.fillRect(bullet.x - bullet.width/4, bullet.y + bullet.height, bullet.width/2, bullet.height);
+            });
+            
+            // Draw enemy bullets
+            spaceEnemyBullets.forEach(bullet => {
+                spaceCtx.fillStyle = bullet.color;
+                spaceCtx.fillRect(bullet.x - bullet.width/2, bullet.y, bullet.width, bullet.height);
+            });
+            
+            // Draw enemies (Enemy Tanks)
+            spaceEnemies.forEach(enemy => {
+                spaceCtx.save();
+                spaceCtx.translate(enemy.x, enemy.y);
+                
+                // Enemy tank body
+                spaceCtx.fillStyle = enemy.color;
+                spaceCtx.fillRect(-15, -8, 30, 16);
+                
+                // Enemy tank turret
+                spaceCtx.fillStyle = '#8b5cf6';
+                spaceCtx.fillRect(-10, -12, 20, 12);
+                
+                // Enemy tank cannon
+                spaceCtx.fillStyle = '#374151';
+                spaceCtx.fillRect(-2, -20, 4, 12);
+                
+                // Enemy flag (generic red)
+                spaceCtx.fillStyle = '#dc2626';
+                spaceCtx.fillRect(-12, -6, 24, 8);
+                
+                // Health bar
+                const healthPercent = enemy.health / enemy.maxHealth;
+                spaceCtx.fillStyle = '#333';
+                spaceCtx.fillRect(-15, -25, 30, 4);
+                spaceCtx.fillStyle = healthPercent > 0.5 ? '#00ff00' : healthPercent > 0.25 ? '#ffff00' : '#ff0000';
+                spaceCtx.fillRect(-15, -25, 30 * healthPercent, 4);
+                
+                spaceCtx.restore();
+            });
+            
+            // Draw power-ups
+            spacePowerUps.forEach(powerUp => {
+                spaceCtx.save();
+                spaceCtx.translate(powerUp.x, powerUp.y);
+                spaceCtx.rotate(powerUp.rotation);
+                
+                spaceCtx.fillStyle = powerUp.color;
+                spaceCtx.fillRect(-10, -10, 20, 20);
+                
+                spaceCtx.strokeStyle = '#ffffff';
+                spaceCtx.lineWidth = 2;
+                spaceCtx.strokeRect(-10, -10, 20, 20);
+                
+                spaceCtx.restore();
+            });
+            
+            // Draw explosions
+            spaceExplosions.forEach(explosion => {
+                spaceCtx.save();
+                spaceCtx.globalAlpha = explosion.opacity;
+                spaceCtx.translate(explosion.x, explosion.y);
+                spaceCtx.scale(explosion.scale, explosion.scale);
+                
+                spaceCtx.fillStyle = explosion.color;
+                spaceCtx.beginPath();
+                spaceCtx.arc(0, 0, 20, 0, 2 * Math.PI);
+                spaceCtx.fill();
+                
+                spaceCtx.restore();
+            });
+            
+            // Draw particles
+            spaceParticles.forEach(particle => {
+                spaceCtx.save();
+                spaceCtx.globalAlpha = particle.opacity;
+                spaceCtx.fillStyle = particle.color;
+                spaceCtx.fillRect(particle.x, particle.y, particle.size, particle.size);
+                spaceCtx.restore();
+            });
+        }
+
+        // Game Over
+        function spaceGameOver() {
+            spaceGameActive = false;
+            updateSpaceStatus(`💀 OPERATION FAILED! Motherland under threat! Final Score: ${spaceScore}`);
+            
+            document.getElementById('spaceGameMessage').classList.remove('hidden');
+            document.getElementById('spaceGameMessage').innerHTML = `
+                <div class="inline-block bg-gradient-to-r from-red-600 to-red-800 px-8 py-4 rounded-full shadow-2xl">
+                    <span class="font-['Cinzel'] text-2xl font-bold">💀 RETREAT ORDERED 💀</span>
+                </div>
+                <div class="mt-4 text-lg">Final Score: ${spaceScore} | Wave: ${spaceWave}</div>
+                <div class="mt-2 text-sm text-gray-400">The Indian Army never gives up! Try again, soldier!</div>
+            `;
+        }
+
+        // Update Stats
+        function updateSpaceStats() {
+            document.getElementById('spaceScore').textContent = spaceScore;
+            document.getElementById('spaceLives').textContent = spaceLives;
+            document.getElementById('spaceShield').textContent = spaceShield;
+            document.getElementById('spaceWeapon').textContent = spaceWeapon;
+            document.getElementById('spaceCombo').textContent = spaceCombo;
+            document.getElementById('spaceWave').textContent = spaceWave;
+        }
+
+        // Update Status
+        function updateSpaceStatus(message) {
+            const statusElement = document.getElementById('spaceGameStatus');
+            statusElement.textContent = message;
+            statusElement.style.animation = 'none';
+            statusElement.offsetHeight; // Trigger reflow
+            statusElement.style.animation = 'pulse 0.5s ease-out';
+        }
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeSpaceGame();
+            
+            // Add scroll event listener for navbar
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 100) {
+                    nav.classList.add('bg-gray-900');
+                    nav.classList.remove('bg-gray-900/95');
+                } else {
+                    nav.classList.add('bg-gray-900/95');
+                    nav.classList.remove('bg-gray-900');
+                }
+            });
+
+            // Intersection Observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all animated elements
+            document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .bounce-in, .rotate-in, .slide-up, .zoom-in, .flip-in').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Add click handlers for navigation
+            document.querySelectorAll('nav a[href^="#"]').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    scrollToSection(targetId);
+                });
+            });
+
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const heroSection = document.querySelector('#home');
+                if (heroSection && scrolled < window.innerHeight) {
+                    heroSection.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+            });
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'997cc3ccb1b2a855',t:'MTc2MjAxNDUwMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
